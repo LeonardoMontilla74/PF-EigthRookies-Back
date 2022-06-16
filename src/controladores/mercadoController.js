@@ -27,9 +27,9 @@ const createOrder = async (req, res, next) => {
         items: allProducts,
         auto_return: 'approved',
         back_urls: {
-            failure: `https://the-rookies.herokuapp.com/products/carrito`,
-            pending: `https://the-rookies.herokuapp.com/mercadopay/status`,
-            success: `https://the-rookies.herokuapp.com/mercadopay/status`
+            failure: `${URL_DEPLOYD}/products/carrito`,
+            pending: `${URL_DEPLOYD}/mercadopay/status`,
+            success: `${URL_DEPLOYD}/mercadopay/status`
         }
     };
 
@@ -59,7 +59,7 @@ const handleStatus = async (req, res, next) => {
         purchaseHistory(newShoppingCar, email)
         sendEmailPurchase(email, newShoppingCar.payment_id);
 
-        res.redirect(`http://localhost:3000/purchase/${newShoppingCar.payment_id}`);
+        res.redirect(`https://the-rookies.vercel.app/purchase/${newShoppingCar.payment_id}`);
 
     } catch (error) {
         console.error(error);
