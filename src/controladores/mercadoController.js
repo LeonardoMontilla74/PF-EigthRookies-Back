@@ -27,9 +27,9 @@ const createOrder = async (req, res, next) => {
         items: allProducts,
         auto_return: 'approved',
         back_urls: {
-            failure: `${URL_DEPLOYD}/products/carrito`,
-            pending: `${URL_DEPLOYD}/mercadopay/status`,
-            success: `${URL_DEPLOYD}/mercadopay/status`
+            failure: `https://the-rookies.herokuapp.com/products/carrito`,
+            pending: `https://the-rookies.herokuapp.com/mercadopay/status`,
+            success: `https://the-rookies.herokuapp.com/mercadopay/status`
         }
     };
 
