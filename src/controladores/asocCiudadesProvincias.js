@@ -7,5 +7,4 @@ function asociacion (array) {
     })
 };
 
-
 module.exports = {asociacion}
