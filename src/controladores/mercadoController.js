@@ -1,6 +1,6 @@
 const mercadopago = require('mercadopago');
 require('dotenv').config();
-const { ACCESS_TOKEN } = process.env;
+const { ACCESS_TOKEN, URL_DEPLOYD } = process.env;
 const { redirect } = require('express/lib/response');
 const { ShoppingCar } = require('../db');
 const { sendEmailPurchase } = require('../controladores/util/sendEmail');
@@ -27,9 +27,9 @@ const createOrder = async (req, res, next) => {
         items: allProducts,
         auto_return: 'approved',
         back_urls: {
-            failure: 'http://localhost:3000/products/carrito',
-            pending: 'http://localhost:3001/mercadopay/status',
-            success: 'http://localhost:3001/mercadopay/status'
+            failure: `${URL_DEPLOYD}/products/carrito`,
+            pending: `${URL_DEPLOYD}/mercadopay/status`,
+            success: `${URL_DEPLOYD}/mercadopay/status`
         }
     };
 
